@@ -1,19 +1,24 @@
 import React from 'react';
 
-import {context} from '../context/data'
-import {usercontext} from '../context/user'
+import {OrdersContext} from '../context/data'
+import {UserContext} from '../context/user'
 
 export default function DataRows () {
-    const {data, columns} = context()
-    const {current_user_role} = usercontext()
+    const {data, columns} = OrdersContext()
+    const {current_user_role} = UserContext()
 
     return(
         <div>
-            <div>
+            <div className="data_table">
                 {
-                    columns.map((data)=>{
-                        
-                    })
+                    columns.map((c_data)=>
+                        <div>{c_data}</div>
+                    )
+                }
+                {
+                    columns.map((c_data)=>
+                        <div>{c_data}</div>
+                    )
                 }
             </div>
         </div>

@@ -4,10 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// CONTEXT ========================================
+import UserData from '../src/context/user'
+import Data from '../src/context/data'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <UserData>
+      <Data >
+          <App />
+      </Data>
+    </UserData>
   </React.StrictMode>
 );
 

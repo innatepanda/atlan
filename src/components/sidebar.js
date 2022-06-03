@@ -1,13 +1,14 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {usercontext} from '../context/user'
+import {UserContext} from '../context/user'
 
 export default function SideBar(){
-    const {current_user, all_users} = usercontext();
+    const {current_user, all_users, changeUser} = UserContext();
+
     return(
         <div>
             <div>
-                <select defaultValue={current_user}>
+                <select defaultValue={current_user} onChange = {(e)=>changeUser(e.target.value)}>
                     {
                         all_users.map((data, index)=>
                             <option value={index}>

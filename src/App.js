@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   Link
 } from "react-router-dom";
@@ -18,24 +18,25 @@ import ErrorPage from '../src/pages/error'
 import Sidebar from '../src/components/sidebar'
 
 
+
 function App() {
   return (
+  <Router >
     <div className="App">
-      <div className="sidebar">
-        <Sidebar />
-      </div>
-
-      <div className="main_div">
-        <Router >
-          <Switch>
-            <Route path = "/" exact component={Stats} />
-            <Route path = "/stats" exact component={Stats} />
-            <Route path = "/editor" exact component={Editor} />
-            <Route path="*" component={ErrorPage} />
-          </Switch>
-        </Router>
-      </div>
+        <div className="sidebar">
+          <Sidebar />
+        </div>
+        <div className="main_div">
+            <Routes>
+              <Route path = "/"  element={<Stats/>} />
+              <Route path = "/stats"  element={<Stats/>} />
+              <Route path = "/editor"  element={<Editor/>} />
+              <Route path="*" element={<ErrorPage/>} />
+            </Routes>
+        </div>
     </div>
+  </Router>
+    
   );
 }
 

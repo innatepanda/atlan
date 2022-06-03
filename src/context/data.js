@@ -7,7 +7,7 @@ const data_csv = require('../orders.json')
 
 const DataContext = createContext();
 
-export const context = () => useContext( DataContext );
+export const OrdersContext = () => useContext( DataContext );
 
 const chunk_length = 300;
 
@@ -29,6 +29,31 @@ export default function Data({ children }) {
         "quantity",
         "discount"
     ]
+
+    const stubs = [
+        { 
+            query: "SELECT * FROM ORDERS",
+            func: function(){
+                console.log("no filter")
+            }
+        },
+        { 
+            query: "SELECT * FROM ORDERS WHERE COUNTRY='France'",
+            func: function(){
+                console.log("france")
+            }
+        },
+        { 
+            query: "SELECT * FROM ORDERS WHERE CUSTOMERID='RICSU'",
+            func: function(){
+                console.log("RICSU")
+            }
+        }
+    ]
+
+    const selectStub = (index) =>{
+        stubs[index].func();
+    }
     
     useEffect(() => {
         loadData();
@@ -54,10 +79,12 @@ export default function Data({ children }) {
         }
         return result;
     };
-
+    
     const value = {
         data,
-        columns
+        columns,
+        stubs,
+        selectStub
     }
     return (
         <DataContext.Provider value = { value } >
