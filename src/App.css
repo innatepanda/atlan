@@ -1,0 +1,15 @@
+.App{
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: 20vw auto;
+}
+.main_div{
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.editor{
+  display: grid;
+  grid-template-columns: 80% auto;
+}
