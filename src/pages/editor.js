@@ -2,19 +2,21 @@ import React from 'react';
 // COMPONENTS ====================================
 import DataRows from '../components/datarows'
 
+import Button from '@mui/material/Button';
+
 // CONTEXT ====================================
-import {OrdersContext} from '../context/data'
+import {CustContext} from '../context/data'
 
 
 export default function Editor(){
-    const {stubs, selectStub} = OrdersContext();
+    const {stubs, selectStub} = CustContext();
     return(
         <div className="editor">
             <div>
                 <div>
                     <div className="header">SQL Editor</div>
                     <textarea className="editor_textarea" placeholder="This doesnt do anything for now"/>
-                    <button>Execute</button>
+                    <Button>Execute</Button>
                 </div>
                 <div>
                     <div className="header">Demo Stubs</div>

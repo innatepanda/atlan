@@ -10,6 +10,22 @@
 }
 
 .editor{
+  height: 100vh ;
+  width: fit-content;
+  background-color: pink;
   display: grid;
-  grid-template-columns: 80% auto;
+  grid-template-columns: 50vw auto;
+}
+.data_table{
+  height: 100vh ;
+}
+.data_table_row{
+  display: grid;
+  grid-template-columns: repeat(6, 100px);
+}
+.data_cell{
+  overflow-wrap: break-word;
+  overflow: scroll;
+  height: 50px;
+  text-align: center;
 }
